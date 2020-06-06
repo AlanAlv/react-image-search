@@ -28,7 +28,7 @@ const Form = ({saveSearch}) => {
                     <input 
                         type="text" 
                         className="form-control form-control-lg" 
-                        placeholder="Search an imahe, i.e. : Football"
+                        placeholder="Search an image, i.e. : Football"
                         onChange={ e => saveWord(e.target.value)}
                     />
                 </div>

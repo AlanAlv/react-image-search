@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Form from './components/Form'
+import Form from './components/Form';
+import PicsList from './components/PicsList';
 
 function App() {
 
   // App states
   const [ search, saveSearch ] = useState('');
+  const [ pics, savePics ] = useState([]);
 
   useEffect(() => {
     const callAPI = async () => {
@@ -17,7 +19,7 @@ function App() {
       const answer = await fetch(url);
       const result = await answer.json();
 
-      saveSearch(result.hits);
+      savePics(result.hits);
   
     }
 
@@ -32,6 +34,11 @@ function App() {
         </p>
         <Form 
           saveSearch={saveSearch}
+        />
+      </div>
+      <div className="row justify-content-center">
+        <PicsList 
+          pics={pics}
         />
       </div>
     </div>
